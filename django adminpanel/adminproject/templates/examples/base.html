@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+{% block title %}
+{% endblock %}
+<head>
+
+    {% block style %}
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Medical</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+    <!-- Favicon -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon -->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link href="{% static 'assets/img/brand/favicon.png' %}" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Nurse Icons -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <!-- Icons -->
+    <link href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
+<body>
+
+<!-- Sidenav -->
+{% block navbar %}
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+                aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Brand -->
+        <a class="navbar-brand pt-0" href="{% url 'index' %}">
+            <img src="{% static 'assets/img/brand/blue.png' %}" class="navbar-brand-img" alt="Bangladesh Medical">
+        </a>
+        <!-- User -->
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="{% url 'index' %}">
+                            <img src="{% static 'assets/img/brand/blue.png' %}">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                                aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Form -->
+            <form class="mt-4 mb-3 d-md-none">
+                <div class="input-group input-group-rounded input-group-merge">
+                    <input type="search" class="form-control form-control-rounded form-control-prepended"
+                           placeholder="Search" aria-label="Search">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="fa fa-search"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- Navigation -->
+
+
+
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">
+                        <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                    </a>
+                </li>
+
+                <!--NEW for nurse -->
+                 <li class="nav-item dropdown">
+                <a class="nav-link"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                     <i class='fas fa-user-nurse' style='font-size:24px'></i>Nurse
+                </a>
+                  <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                    <a href="{% url 'nurse_list' %}" class="dropdown-item">
+                        <i class="ni ni-single-02"></i>
+                        <span>List</span>
+                    </a>
+                    <a href="{% url 'add_nurse' %}" class="dropdown-item">
+                        <i class="ni ni-calendar-grid-58"></i>
+                        <span>Create</span>
+                    </a>
+                </div>
+
+
+                <!--End nurse -->
+                <!--End Cabne -->
+                 <li class="nav-item dropdown">
+                <a class="nav-link"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                     <i class="fa fa-home"></i>Cabin
+                </a>
+                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                    <a href="{% url 'cabin_list' %}" class="dropdown-item">
+                        <i class="ni ni-single-02"></i>
+                        <span>List</span>
+                    </a>
+                    <a href="{% url 'add_cabin' %}" class="dropdown-item">
+                        <i class="ni ni-calendar-grid-58"></i>
+                        <span>Create</span>
+                    </a>
+                </div>
+
+
+                <!--End Cabne -->
+                <!--start patient -->
+                    <li class="nav-item dropdown">
+                <a class="nav-link"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                     <i class="fa fa-female" style="font-size:25px"></i>Patient
+                </a>
+                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                    <a href="{% url 'patient_list' %}" class="dropdown-item">
+                        <i class="ni ni-single-02"></i>
+                        <span>List</span>
+                    </a>
+                    <a href="{% url 'add_patient' %}" class="dropdown-item">
+                        <i class="ni ni-calendar-grid-58"></i>
+                        <span>Create</span>
+                    </a>
+                </div>
+
+                <!--End patient -->
+
+            <!-- Divider -->
+            <hr class="my-3">
+            <!-- Heading -->
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Main content -->
+<div class="main-content">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{% url 'index' %}">Dashboard</a>
+            <!-- Form -->
+            <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                <div class="form-group mb-0">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Search" type="text">
+                    </div>
+                </div>
+            </form>
+            <!-- User -->
+           {% block profile %}
+            {% endblock %}
+        </div>
+    </nav>
+    <!-- Header -->
+     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+            <div class="header-body">
+                <!-- Card stats -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
+                                        <span class="h2 font-weight-bold mb-0">350,897</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                    <span class="text-nowrap">Since last month</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                                        <span class="h2 font-weight-bold mb-0">2,356</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                            <i class="fas fa-chart-pie"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                                    <span class="text-nowrap">Since last week</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                                        <span class="h2 font-weight-bold mb-0">924</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
+                                    <span class="text-nowrap">Since yesterday</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                                        <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                            <i class="fas fa-percent"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                                    <span class="text-nowrap">Since last month</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+<!-- Main content -->
+{% block content %}
+{% endblock %}
+
+
+
+
+{% block footer %}
+  <!-- Footer -->
+        <footer class="footer">
+            <div class="row align-items-center justify-content-xl-between">
+                <div class="col-xl-6">
+                    <div class="copyright text-center text-xl-left text-muted">
+                        &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                                       target="_blank">Creative Tim</a>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
+                                Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
+                               class="nav-link" target="_blank">MIT License</a>
+                        </li>
+                        <li>   <div class="container-fluid">
+
+                        <div class="row">
+
+                            <ul class="fh5co-social">
+                                <li><a href="https://twitter.com/AbdullahAlMuhi4"  target="_blank"><i class="icon-twitter"></i></a></li>
+                                <li><a href="https://www.facebook.com/muhit1296.muhit"  target="_blank"><i class="icon-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/muhit1296/"  target="_blank"><i class="icon-instagram"></i></a></li>
+                            </ul>
+
+                        </div>
+
+		           </div></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </footer>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<!-- Argon Scripts -->
+<!-- Core -->
+<script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Optional JS -->
+<script src="{% static 'assets/vendor/chart.js/dist/Chart.min.js' %}"></script>
+<script src="{% static 'assets/vendor/chart.js/dist/Chart.extension.js' %}"></script>
+<!-- Argon JS -->
+<script src="{% static 'assets/js/argon.js' %}"></script>
+{% endblock %}
+
+</body>
+
+</html>

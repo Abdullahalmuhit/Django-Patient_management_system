@@ -1,0 +1,90 @@
+{% extends 'examples/list.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block style %}
+<head>
+  {% load static %}
+
+  <link href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
+   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+</head>
+{% endblock %}
+{% block content %}
+<body class="bg-default">
+  <div class="main-content">
+
+
+    <!-- Page content -->
+    <div class="container mt--12 pb-"  >
+      <!-- Table -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-8">
+          <div class="card bg-secondary shadow border-10">
+            <div class="card-body px-lg-8 py-lg-8">
+              <div class="text-center text-muted mb-4">
+                <h1 class="text-black">Welcome!</h1>
+
+                <small><p class="text-lead text-black">Add Nurse</p></small>
+              </div>
+              <form action="/nurse_reg">
+                {% csrf_token %}
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-laptop"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Nurse Name" type="text" name="name" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Email" type="email" name="email" required>
+                  </div>
+                </div>
+
+                   <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Phone number" type="text" name="phone" required>
+                  </div>
+                </div>
+
+                   <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-cart"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Cabin No" type="text" name="cabin_no" required>
+                  </div>
+                </div>
+
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Add Nurse</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  {% block footer %}
+  {% endblock %}
+{% block script %}
+  <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/argon.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'examples/list.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+   {% block style %}
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+    <!-- Favicon -->
+    <link href="{% static 'assets/img/brand/favicon.png' %}" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Nurse Icons -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <!-- Icons -->
+    <link href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
+    {% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+  <div class="table-responsive">
+       <div class="panel-body">
+                            {% if messages %}
+                          <div class="messages">
+                            {% for message in messages %}
+                          <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+      <h2><b>List Of Nurses</b></h2>
+                          <form action="/nurse_update/{{ text.id }}">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone </th>
+                                <th scope="col">Cabin_No</th>
+                                <th scope="col">Action</th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>
+                                   <input class="form-control" type="text" name="name" value="{{ text.name }}">
+                                </td>
+                                <td>
+                                     <input class="form-control" type="text" name="email" value="{{ text.email }}">
+                                </td>
+                                <td>
+                                     <input class="form-control" type="text" name="phone" value="{{ text.phone }}">
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="cabin_no" value="{{ text.cabin_no }}">
+                                </td>
+                                
+								<td><button type="submit" class="btn btn-primary mt-0">Update Nurse</button></td>
+
+
+
+                            </tr>
+
+                            </tbody>
+                         
+                        </table>
+						</form>
+                          </div>
+       </div>
+  </div>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
+
+

@@ -1,0 +1,80 @@
+{% extends 'examples/list.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block style %}
+<head>
+  {% load static %}
+
+  <link href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+  <!-- Argon CSS -->
+  <link type="text/css" href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
+</head>
+{% endblock %}
+{% block content %}
+<body class="bg-default">
+  <div class="main-content">
+
+
+    <!-- Page content -->
+    <div class="container mt--12 pb-10" >
+      <!-- Table -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <div class="card bg-secondary shadow border-10">
+            <div class="card-body px-lg-8 py-lg-8">
+              <div class="text-center text-muted mb-4">
+                <h1 class="text-black">Welcome!</h1>
+
+                <small><p class="text-lead text-black">Add Cabin</p></small>
+              </div>
+              <form action="/cabin_reg">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Cabin Name" type="text" name="name" required>
+                  </div>
+                </div>
+
+                   <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Number of Ward" type="text" name="ward" required>
+                  </div>
+                </div>
+
+                   <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Room Number" type="text" name="room" required>
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Create Cabin</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  {% block footer %}
+  {% endblock %}
+{% block script %}
+  <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/argon.js' %}"></script>
+{% endblock %}
